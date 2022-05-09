@@ -5,10 +5,23 @@ module.exports = {
     module: {
 	rules: [
 	    {
-		test: /\.css$/,
+		test: /\.scss$/,
 		use: [
 		    MiniCssExtractPlugin.loader,
-		    'css-loader'
+		    'css-loader',
+		    {
+			loader: 'postcss-loader',
+			options: {
+			    postcssOptions: {
+				plugins: function () {
+				    return [
+					require('autoprefixer')
+				    ];
+				}
+			    }
+			}
+		    },
+		    'sass-loader'
 		]},
 	    {
 		mimetype: 'image/svg+xml',
