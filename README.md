@@ -8,6 +8,10 @@ SVGs in its CSS.  This sample configuration repo uses Webpack asset modules
 to extract these SVGs to their own files.  These can then be served as any
 other static files.
 
+## Live example
+
+https://charlesroelli.github.io/bootstrap-webpack-csp-compat-config/
+
 ## Usage
 
 ```
