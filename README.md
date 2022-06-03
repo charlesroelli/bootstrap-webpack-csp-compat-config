@@ -8,7 +8,50 @@ SVGs in its CSS.  This sample configuration repo uses Webpack asset modules
 to extract these SVGs to their own files.  These can then be served as any
 other static files.
 
-## Live example
+## The minimal configuration
+
+```js
+// webpack.config.js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: function () {
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            }
+          },
+          'sass-loader'
+        ]
+      },
+      {
+        mimetype: 'image/svg+xml',
+        scheme: 'data',
+        type: 'asset/resource',
+        generator: {
+          filename: 'icons/[hash].svg'
+        }
+      }
+    ]
+  }
+};
+```
+
+## Running example
 
 https://charlesroelli.github.io/bootstrap-webpack-csp-compat-config/
 
