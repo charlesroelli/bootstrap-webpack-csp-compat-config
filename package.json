@@ -10,7 +10,7 @@
     "bootstrap": "^5.2.1",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.1",
-    "postcss": "^8.4.16",
+    "postcss": "^8.4.17",
     "postcss-loader": "^7.0.1",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
